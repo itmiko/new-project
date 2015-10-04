@@ -1,12 +1,11 @@
 var gulp = require('gulp'),
+  autoprefixer = require('gulp-autoprefixer'),
 	concatCss = require('gulp-concat-css'),
 	rename = require('gulp-rename'),
 	notify = require("gulp-notify"),
-	// autoprefixer = require('gulp-autoprefixer'),
 	livereload = require('gulp-livereload'),
 	connect = require('gulp-connect'),
 	minifyCss = require('gulp-minify-css');
-
 
 //server connect
 gulp.task('connect', function() {
@@ -20,7 +19,10 @@ gulp.task('connect', function() {
 gulp.task('css', function () {
   	gulp.src('css/*.css')
     .pipe(concatCss("bundle.css"))
-    // .pipe(autoprefixer({browsers: ['last 3 versions']}))
+    .pipe(autoprefixer({
+    browsers: ['last 15 versions'],
+    cascade: false
+    }))
     .pipe(minifyCss())
     .pipe(rename("bundle.min.css"))
     .pipe(gulp.dest('app/css'))
@@ -38,7 +40,6 @@ gulp.task('html', function(){
 gulp.task('watch', function () {
   	gulp.watch('css/*.css', ['css'])
   	gulp.watch('app/index.html', ['html'])
-
 });
 
 //default

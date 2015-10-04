@@ -1,1 +1,1 @@
-h1,p{font-family:"Helvetica Neue"}@media (max-width:680px){h1{font-size:20px}}body{margin:104px;padding:0;background:linear-gradient(45deg,#ccc,#555)}h1{color:red}p{color:orange}
+@media (max-width:680px){h1{font-size:20px}}body{background:-webkit-linear-gradient(45deg,#000,red);background:linear-gradient(45deg,#000,red)}
